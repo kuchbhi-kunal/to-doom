@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
+body {
+  font-family: "Press Start 2P", system-ui;
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 380px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.logo{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.logo img{
+  width: 200px;
+}
+
+.taskInput{
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 1.5rem;
+}
+
+.taskInput button {
+  width: 70px;
+  height: 36.4px;
+  font-size: 12px;
+}
+
+.taskInput input[type="text"]::placeholder {
+  color: #5e5e5e;
+  font-size: .75rem;
+  font-weight: 400;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 9px;
+  border: 3px solid #bebebe;
+  background-color: #e0dfdf;
+  border-top: 3px solid #5c5c5c;
+  border-bottom: 3px solid #5c5c5c;
+  font-family: "Press Start 2P", system-ui;
+  margin-right: 0;
+}
+
+.taskInput input[type="text"]:focus {
+  outline: none;
+}
+
+button {
+  background-color: #f96544;
+  color: #fff;
+  border-top: 3px solid #fc1c10;
+  border-bottom: 3px solid #fc2f01;
+  border-right: 3px solid #ffaba6;
+  cursor: pointer;
+  font-family: "Press Start 2P", system-ui;
+}
+
+button:hover {
+  background-color: #fe5d00;
+}
+
+.cross {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff5733;
+}
+
+hr {
+  background-color: #ebebeb;
+  margin: 6px 0;
+  height: .5px;
+  border: none;
+  width: 100%;
+}
+
+.belowInputTask{
+  margin-bottom: -.5rem;
+  margin-top: 1.5rem;
+  height: .5px;
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background-color: #fff;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 400;
+  height: 20px;
+}
+
+.deleteBtn {
+  margin-left: auto;
+}
+
+.completed {
+  position: relative;
+}
+
+.completed::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ff5733;
+  animation: slideStrikeThrough 5s ease forwards;
+}
+
+@keyframes slideStrikeThrough {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 0%;
+  }
+  100% {
+    width: 102%;
+  }
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #bebebe;
+  outline: none;
+  margin-right: 18px;
+  margin-left: 12px;
+  position: relative;
+  background-color: #e0dfdf;
+  border-top: 3px solid #5c5c5c;
+  border-bottom: 3px solid #5c5c5c;
+}
+
+input[type="checkbox"]:hover {
+  cursor: pointer; 
+}
+
+#gunShotAnimation {
+  position: fixed;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-40%);
+  z-index: 9999;
+  display: none;
+}
+
+#gunShotAnimation img {
+  width: 550px;
+}
+
+.bullethole {
+  width: 30px;
+  height: 30px;
+  /* animation: appear 3.7s linear; */
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+footer {
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #000;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer span{
+  font-weight: 600;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+
