@@ -166,9 +166,10 @@ input[type="checkbox"] {
   margin-right: 18px;
   margin-left: 12px;
   position: relative;
-  background-color: #e0dfdf;
+  background-color: #ffffff;
   border-top: 3px solid #5c5c5c;
   border-bottom: 3px solid #5c5c5c;
+  scae: 1.1;
 }
 
 input[type="checkbox"]:hover {
