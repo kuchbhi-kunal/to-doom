@@ -7,7 +7,7 @@ function addTask(taskText, completed) {
     const li = document.createElement('li');
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.checked = completed; 
+    checkbox.checked = completed;
     const span = document.createElement('span');
     span.textContent = taskText;
     span.classList.add('task-text');
@@ -31,12 +31,12 @@ function addTask(taskText, completed) {
 
     cross.addEventListener('click', function() {
         li.remove();
-        hr.remove(); 
+        hr.remove();
         updateLocalStorage();
     });
 
     checkbox.addEventListener('change', function() {
-        span.classList.toggle('completed', checkbox.checked); 
+        span.classList.toggle('completed', checkbox.checked);
         if (checkbox.checked) {
            setTimeout(() => {
              li.removeChild(checkbox);
@@ -45,17 +45,17 @@ function addTask(taskText, completed) {
             bulletHole.innerHTML = '<img src="assets/bullethole.png" class="bullethole" alt="Bullet Hole">';
             setTimeout(() => {
                 li.insertBefore(bulletHole, span);
-            }, 2000); 
+            }, 2000);
             triggerGunShotAnimation();
             setTimeout(() => {
                 span.style.color = '#ff5733';
             }, 4500);
         } else {
-            li.removeChild(li.querySelector('.bullethole')); 
+            li.removeChild(li.querySelector('.bullethole'));
             li.insertBefore(checkbox, span);
-            span.style.color = '#000'; 
+            span.style.color = '#000';
         }
-        updateLocalStorage(); 
+        updateLocalStorage();
     });
 
     if (completed) {
@@ -95,11 +95,11 @@ addTaskBtn.addEventListener('click', function() {
 });
 
 taskInput.addEventListener('keyup', function(event) {
-    if (event.keyCode === 13) { 
-        let taskText = taskInput.value.trim().substring(0, 15); 
+    if (event.keyCode === 13) {
+        let taskText = taskInput.value.trim().substring(0, 15);
         if (taskText !== '') {
             addTask(taskText, false);
-            updateLocalStorage(); 
+            updateLocalStorage();
             taskInput.value = '';
         }
     }
@@ -109,5 +109,5 @@ function triggerGunShotAnimation() {
     gunShotAnimation.style.display = 'block';
     setTimeout(() => {
         gunShotAnimation.style.display = 'none';
-    }, 2500); 
+    }, 2500);
 }
