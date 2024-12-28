@@ -48,37 +48,51 @@ function addTask(taskText, completed) {
 }
 
 function handleTaskCompletion(li, span, checkbox) {
+  // Mark as completed immediately in the DOM
   span.classList.toggle("completed", checkbox.checked);
-  if (checkbox.checked) {
-    setTimeout(() => {
-      li.removeChild(checkbox);
-    }, 2000);
 
+  if (checkbox.checked) {
+    // Create bullet hole element
     const bulletHole = document.createElement("span");
     bulletHole.innerHTML =
       '<img src="assets/bullethole.png" class="bullethole" alt="Bullet Hole">';
+
+    // Set a flag on the li element to track completion state
+    li.dataset.completed = "true";
+
+    // Trigger animations
     setTimeout(() => {
+      li.removeChild(checkbox);
       li.insertBefore(bulletHole, span);
+      // Update localStorage after bullet hole is added
+      updateLocalStorage();
     }, 2000);
 
     triggerGunShotAnimation();
+
     setTimeout(() => {
       span.style.color = "#ff5733";
     }, 4500);
   } else {
-    li.removeChild(li.querySelector(".bullethole"));
+    li.dataset.completed = "false";
+    const existingBulletHole = li.querySelector(".bullethole");
+    if (existingBulletHole) {
+      li.removeChild(existingBulletHole);
+    }
     li.insertBefore(checkbox, span);
     span.style.color = "#000";
+    updateLocalStorage();
   }
-  updateLocalStorage();
 }
 
 function updateLocalStorage() {
   const tasks = [];
   taskList.querySelectorAll("li").forEach(function (taskItem) {
     const taskText = taskItem.querySelector(".task-text").textContent;
-    const bulletHole = taskItem.querySelector(".bullethole");
-    const isCompleted = bulletHole !== null; // Check for bullet hole instead of checkbox
+    // Use the data attribute to determine completion status
+    const isCompleted =
+      taskItem.dataset.completed === "true" ||
+      taskItem.querySelector(".bullethole") !== null;
     tasks.push({ text: taskText, completed: isCompleted });
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
